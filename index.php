@@ -3,51 +3,27 @@
 
 <!-- CAJA PRINCIPAL --> 
 <div id="principal">
-
     <h1>Ultimas entradas</h1>
-    <article class="entrada">
-        <a href="">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem Ipsum
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                "No hay nadie que ame el dolor mismo, que lo busque, lo encuentre y lo quiera, simplemente porque es el dolor."
-            </p>
-        </a>
-    </article>
 
-    <article class="entrada">
-        <a href="">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem Ipsum
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                "No hay nadie que ame el dolor mismo, que lo busque, lo encuentre y lo quiera, simplemente porque es el dolor."
-            </p>
-        </a>
-    </article>
+    <?php
+        $entradas = conseguirUltimasEntradas($db);     
+        if(!empty($entradas)):
+        while($entrada = mysqli_fetch_assoc($entradas)):
+    ?>
+            <article class="entrada">
+                <a href="">
+                    <h2><?=$entrada['titulo']?></h2>
+                    <span class="fecha"><?=$entrada['categoria'].' | '.$entrada['fecha']?></span>
+                    <p>
+                     <?=substr($entrada['descripcion'], 0, 180).'...'?>
+                    </p>
+                </a>
+            </article>
+    <?php
+          endwhile;
+      endif;
+    ?>
 
-    <article class="entrada">
-        <a href="">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem Ipsum
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                "No hay nadie que ame el dolor mismo, que lo busque, lo encuentre y lo quiera, simplemente porque es el dolor."
-            </p>
-        </a>
-    </article>
-
-    <article class="entrada">
-        <a href="">
-            <h2>Titulo de mi entrada</h2>
-            <p>
-                Lorem Ipsum
-                "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-                "No hay nadie que ame el dolor mismo, que lo busque, lo encuentre y lo quiera, simplemente porque es el dolor."
-            </p>
-        </a>
-    </article>
 
     <div id="ver-todas">
         <a href="">Ver todas las entradas</a>
