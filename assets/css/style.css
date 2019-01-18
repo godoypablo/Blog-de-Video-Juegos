@@ -229,8 +229,22 @@ input[type="submit"],
     margin-top: 25px;
 }
 
+#principal h4{
+    margin-top: 15px;
+}
+
 #principal p{
-    margin-top: 8px;
+    margin-top: 8px; /*original: 8px */
+    text-align: justify; /* PAG */
+    line-height: 1.5; font-size: 1em; /* PAG */
+    padding: 5px;     
+}
+
+#principal textarea{
+  width:90%;
+  height:100px;
+  padding: 5px;
+  line-height: 1.5;  /* PAG */
 }
 
 #ver-todas a{
